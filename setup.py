@@ -31,7 +31,10 @@ def install_torch():
     try:
         import torch
     except ImportError:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "torch"])
+        print("torch not found, install torch first")
+        raise ImportError
+        # to fix pdm issue
+        # subprocess.check_call([sys.executable, "-m", "pip", "install", "torch"])
 
 # Call the function to ensure torch is installed
 install_torch()
